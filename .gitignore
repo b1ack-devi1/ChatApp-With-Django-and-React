@@ -1,0 +1,78 @@
+# ======================================
+# Global
+# ======================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.db
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyd
+*.pdb
+.DS_Store
+Thumbs.db
+.env
+*.env
+.env.*
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ======================================
+# Python / Django
+# ======================================
+venv/
+env/
+ENV/
+*.egg-info/
+*.egg
+*.bak
+*.tmp
+pip-log.txt
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+*.mo
+instance/
+.mypy_cache/
+pytest_cache/
+.coverage
+htmlcov/
+
+# ======================================
+# Node / React Frontend
+# ======================================
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.parcel-cache/
+frontend/.next/
+frontend/.nuxt/
+frontend/.cache/
+frontend/yarn-error.log
+frontend/package-lock.json
+frontend/.env
+frontend/.env.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ======================================
+# OS Generated Files
+# ======================================
+ehthumbs.db
+Icon?
+desktop.ini
+
+# ======================================
+# Other Tools
+# ======================================
+*.iml
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
