@@ -23,10 +23,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
             payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
             self.user = await database_sync_to_async(User.objects.get)(id=payload["user_id"])
             
-            print(f"Authenticated as {self.user.username}")
+            
         except Exception as e:
             await self.close()
-            print(f"❌ Token decode error: {e}")
+            
 
             return
 
@@ -46,7 +46,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             }
         )
 
-        print(f"💬 Connected to {self.room_group_name}")
+        
 
         # Load last 50 messages safely
         messages = await self.get_last_messages(self.room_id)
@@ -67,7 +67,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         from django.contrib.auth.models import User
         from django.conf import settings
-        print(f"📩 Received data: {text_data}")
+        
         data = json.loads(text_data)
         message_text = data.get("message")
         query_params = parse_qs(self.scope["query_string"].decode())
@@ -75,17 +75,16 @@ class ChatConsumer(AsyncWebsocketConsumer):
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
         user = await database_sync_to_async(User.objects.get)(id=payload["user_id"])
 
-        print(f"User sending message: {user}")
-        print(f"Message content: {message_text}")
+        
 
         if not message_text or not user.is_authenticated:
-            print("⚠️ Empty message, ignoring")
+            
             return
 
         # Save message safely
         room = await self.get_room(self.room_id)
         message_data = await self.save_message(room, user, message_text)
-        print(f"💾 Message saved from {self.user.username}: {message_data}")
+        
 
         # Send message to group
         await self.channel_layer.group_send(
