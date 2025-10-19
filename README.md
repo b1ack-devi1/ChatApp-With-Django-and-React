@@ -11,6 +11,7 @@ It supports **JWT Authentication**, **Private Rooms**, **Active User Status**, a
 ##  Features
 
 -  **JWT Authentication** (login/signup)
+-  **Edit Profile**
 -  **Private 1-to-1 chat rooms**
 -  **Real-time communication** using Django Channels & WebSockets
 -  **Active user status** indicator
