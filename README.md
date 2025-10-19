@@ -21,7 +21,7 @@ It supports **JWT Authentication**, **Private Rooms**, **Active User Status**, a
 ---
 
 ##  Preview
-/preview.png
+![Preview](preview.png "This is a sample image.")
 
 
 ##  Installation
